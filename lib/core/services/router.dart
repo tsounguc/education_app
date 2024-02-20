@@ -10,7 +10,6 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         (context) => const OnBoardingScreen(),
         settings: settings,
       );
-    // return MaterialPageRoute(builder: (context) => const OnBoardingScreen());
     default:
       return _pageBuilder(
         (context) => const PageUnderConstruction(),

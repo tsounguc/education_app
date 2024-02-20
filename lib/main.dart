@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'core/res/colours.dart';
-import 'core/res/fonts.dart';
+import 'core/resources/colours.dart';
+import 'core/resources/fonts.dart';
+import 'core/services/router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
           color: Colors.transparent,
         ),
       ),
+      onGenerateRoute: onGenerateRoute,
     );
   }
 }
