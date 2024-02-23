@@ -7,5 +7,5 @@ abstract class UseCase<T> {
 
 abstract class UseCaseWithParams<T, Params> {
   const UseCaseWithParams();
-  ResultFuture<Type> call(Params params);
+  ResultFuture<T> call(Params params);
 }
