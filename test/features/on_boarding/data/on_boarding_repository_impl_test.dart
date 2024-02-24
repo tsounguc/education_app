@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:education_app/core/errors/exceptions.dart';
 import 'package:education_app/core/errors/failures.dart';
 import 'package:education_app/features/on_boarding/data/data_sources/onboarding_local_data_source.dart';
 import 'package:education_app/features/on_boarding/data/on_boarding_repo_impl.dart';
@@ -11,9 +12,11 @@ class MockOnBoardingLocalDataSource extends Mock implements OnBoardingLocalDataS
 void main() {
   late OnBoardingLocalDataSource localDataSource;
   late OnBoardingRepositoryImpl repositoryImpl;
+  late CacheException cacheException;
   setUp(() {
     localDataSource = MockOnBoardingLocalDataSource();
     repositoryImpl = OnBoardingRepositoryImpl(localDataSource);
+    cacheException = const CacheException(message: 'Insufficient Storage');
   });
 
   test(
@@ -38,6 +41,34 @@ void main() {
         final result = await repositoryImpl.cacheFirstTimer();
         // Assert
         expect(result, equals(const Right<Failure, void>(null)));
+        verify(() => localDataSource.cacheFirstTimer());
+        verifyNoMoreInteractions(localDataSource);
+      },
+    );
+    test(
+      'given OnBoardingRepositoryImpl, '
+      'when [OnBoardingRepositoryImpl.cacheFirstTimer] is called '
+      'and call to local data source is unsuccessful '
+      'then return [CacheFailure]',
+      () async {
+        // Arrange
+        when(
+          () => localDataSource.cacheFirstTimer(),
+        ).thenThrow(cacheException);
+        // Act
+        final result = await repositoryImpl.cacheFirstTimer();
+        // Assert
+        expect(
+          result,
+          equals(
+            Left<Failure, dynamic>(
+              CacheFailure(
+                message: 'Insufficient Storage',
+                statusCode: 500,
+              ),
+            ),
+          ),
+        );
         verify(() => localDataSource.cacheFirstTimer());
         verifyNoMoreInteractions(localDataSource);
       },
