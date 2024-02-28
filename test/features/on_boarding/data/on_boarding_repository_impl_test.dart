@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:education_app/core/errors/exceptions.dart';
 import 'package:education_app/core/errors/failures.dart';
 import 'package:education_app/features/on_boarding/data/data_sources/onboarding_local_data_source.dart';
-import 'package:education_app/features/on_boarding/data/on_boarding_repo_impl.dart';
+import 'package:education_app/features/on_boarding/data/repositories/on_boarding_repo_impl.dart';
 import 'package:education_app/features/on_boarding/domain/repository/on_boarding_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
