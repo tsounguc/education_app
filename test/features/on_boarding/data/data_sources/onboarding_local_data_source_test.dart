@@ -45,4 +45,56 @@ void main() {
       },
     );
   });
+
+  group('isUserFirstTimer - ', () {
+    test(
+      'given OnBoardingLocalDataSourceImpl '
+      'when [OnBoardingLocalDataSourceImpl.isUserFirstTimer] is called '
+      'then return data from storage if it exists',
+      () async {
+        // Arrange
+        when(() => prefs.getBool(any())).thenReturn(false);
+        // Act
+        final result = await localDataSource.isUserFirstTimer();
+        // Assert
+        expect(result, false);
+        verify(() => prefs.getBool(kFirstTimerKey)).called(1);
+        verifyNoMoreInteractions(prefs);
+      },
+    );
+
+    test(
+      'given OnBoardingLocalDataSourceImpl '
+      'when [OnBoardingLocalDataSourceImpl.isUserFirstTimer] is called '
+      'then return true if there is no data',
+      () async {
+        // Arrange
+        when(() => prefs.getBool(any())).thenReturn(null);
+        // Act
+        final result = await localDataSource.isUserFirstTimer();
+
+        // Assert
+        expect(result, true);
+        verify(() => prefs.getBool(kFirstTimerKey)).called(1);
+        verifyNoMoreInteractions(prefs);
+      },
+    );
+
+    test(
+      'given OnBoardingLocalDataSourceImpl '
+      'when [OnBoardingLocalDataSourceImpl.isUserFirstTimer] is called '
+      'then throw a [CacheException] if there is an error retrieving the data',
+      () async {
+        // Arrange
+        when(() => prefs.getBool(any())).thenThrow(Exception());
+        // Act
+        final methodCall = localDataSource.isUserFirstTimer;
+
+        // Assert
+        expect(methodCall, throwsA(isA<CacheException>()));
+        verify(() => prefs.getBool(kFirstTimerKey)).called(1);
+        verifyNoMoreInteractions(prefs);
+      },
+    );
+  });
 }

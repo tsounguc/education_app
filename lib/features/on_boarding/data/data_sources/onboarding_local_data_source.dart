@@ -22,7 +22,6 @@ class OnBoardingLocalDataSourceImpl implements OnBoardingLocalDataSource {
 
   @override
   Future<bool> isUserFirstTimer() async {
-    // TODO: implement isUserFirstTimer
-    throw UnimplementedError();
+    return _prefs.getBool(kFirstTimerKey) ?? true;
   }
 }
