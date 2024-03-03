@@ -3,9 +3,13 @@ import 'package:equatable/equatable.dart';
 
 class PageContent extends Equatable {
   const PageContent({required this.image, required this.title, required this.description});
-  final String image;
-  final String title;
-  final String description;
+  const PageContent.third()
+      : this(
+          image: MediaResources.casualMeditationScience,
+          title: 'Brand new curriculum',
+          description: 'This is the first online education platform designed by the '
+              "world's top Professor",
+        );
 
   const PageContent.first()
       : this(
@@ -21,13 +25,9 @@ class PageContent extends Equatable {
           description: 'This is the first online education platform designed by the '
               "world's top Professor",
         );
-  const PageContent.third()
-      : this(
-          image: MediaResources.casualMeditationScience,
-          title: 'Brand new curriculum',
-          description: 'This is the first online education platform designed by the '
-              "world's top Professor",
-        );
+  final String image;
+  final String title;
+  final String description;
 
   @override
   List<Object?> get props => [image, title, description];
