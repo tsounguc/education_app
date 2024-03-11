@@ -18,7 +18,7 @@ void main() {
     'should call the [AuthRepo.forgotPassword]',
     () async {
       when(() => repo.forgotPassword(
-            email: any(),
+            email: any(named: 'email'),
           )).thenAnswer(
         (_) async => const Right(null),
       );
