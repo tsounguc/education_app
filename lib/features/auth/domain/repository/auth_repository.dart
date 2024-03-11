@@ -11,7 +11,7 @@ abstract class AuthRepository {
     required String password,
   });
 
-  ResultFuture<LocalUser> signUp({
+  ResultVoid signUp({
     required String email,
     required String fullName,
     required String password,
