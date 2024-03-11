@@ -35,7 +35,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         child: BlocConsumer<OnBoardingCubit, OnBoardingState>(
           listener: (context, state) {
             if (state is OnBoardingStatusChecked && state.isFirstTimer) {
-              Navigator.pushReplacementNamed(context, '/home');
+              Navigator.pushReplacementNamed(context, '/');
             } else if (state is UserCached) {
               // TODO(User-Cached-Handler): Push to the appropriate screen
             }
@@ -48,6 +48,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               children: [
                 PageView(
                   controller: pageController,
+                  onPageChanged: (index) => pageController.animateToPage(
+                    index,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  ),
                   children: const [
                     OnBoardingBody(pageContent: PageContent.first()),
                     OnBoardingBody(pageContent: PageContent.second()),
@@ -55,21 +60,19 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   ],
                 ),
                 Align(
-                  alignment: const Alignment(0, 0.04),
+                  alignment: const Alignment(0, 0.07),
                   child: SmoothPageIndicator(
                     controller: pageController,
                     count: 3,
-                    onDotClicked: (index) {
-                      pageController.animateToPage(
-                        index,
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeInOut,
-                      );
-                    },
+                    onDotClicked: (index) => pageController.animateToPage(
+                      index,
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.easeInOut,
+                    ),
                     effect: const WormEffect(
-                      dotHeight: 10,
-                      dotWidth: 10,
-                      spacing: 40,
+                      dotHeight: 20,
+                      dotWidth: 20,
+                      spacing: 50,
                       activeDotColor: Colours.primaryColour,
                       dotColor: Colors.white,
                     ),

@@ -55,8 +55,8 @@ class OnBoardingBody extends StatelessWidget {
                   backgroundColor: Colours.primaryColour,
                   foregroundColor: Colors.white,
                 ),
-                onPressed: () {
-                  context.read<OnBoardingCubit>().cacheFirstTimer();
+                onPressed: () async {
+                  await context.read<OnBoardingCubit>().cacheFirstTimer();
                 },
                 child: const Text(
                   'Get Started',
