@@ -26,11 +26,11 @@ class LocalUserModel extends LocalUser {
   LocalUserModel.fromMap(DataMap map)
       : this(
           uid: map['uid'] as String,
-          fullName: map['fulName'] as String,
+          fullName: map['fullName'] as String,
           email: map['email'] as String,
           points: (map['points'] as num).toInt(),
           profilePic: map['profilePic'] as String?,
-          bio: map['bio'] as String,
+          bio: map['bio'] as String?,
           groupIds: (map['groupIds'] as List<dynamic>).cast<String>(),
           enrolledCourseIds: (map['enrolledCourseIds'] as List<dynamic>).cast<String>(),
           followers: (map['followers'] as List<dynamic>).cast<String>(),
@@ -42,6 +42,7 @@ class LocalUserModel extends LocalUser {
         'fullName': fullName,
         'email': email,
         'profilePic': profilePic,
+        'points': points,
         'bio': bio,
         'groupIds': groupIds,
         'enrolledCourseIds': enrolledCourseIds,
