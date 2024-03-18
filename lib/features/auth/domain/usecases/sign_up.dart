@@ -24,6 +24,13 @@ class SignUpParams extends Equatable {
     required this.fullName,
   });
 
+  const SignUpParams.empty()
+      : this(
+          email: '',
+          password: '',
+          fullName: '',
+        );
+
   final String email;
   final String password;
   final String fullName;

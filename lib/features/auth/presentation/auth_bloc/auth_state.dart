@@ -18,7 +18,7 @@ class AuthLoading extends AuthState {
 class SignedIn extends AuthState {
   const SignedIn(this.user);
 
-  final UserEntity user;
+  final LocalUser user;
 
   @override
   List<Object> get props => [user];
@@ -28,12 +28,16 @@ class SignedUp extends AuthState {
   const SignedUp();
 }
 
+class ForgotPasswordSent extends AuthState {
+  const ForgotPasswordSent();
+}
+
 class UserUpdated extends AuthState {
   const UserUpdated();
 }
 
 class AuthError extends AuthState {
-  const AuthError(this.message);
+  const AuthError({required this.message});
 
   final String message;
 

@@ -7,8 +7,8 @@ abstract class AuthEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class SignInWithEmailAndPasswordEvent extends AuthEvent {
-  const SignInWithEmailAndPasswordEvent({
+class SignInEvent extends AuthEvent {
+  const SignInEvent({
     required this.email,
     required this.password,
   });
@@ -20,8 +20,8 @@ class SignInWithEmailAndPasswordEvent extends AuthEvent {
   List<Object> get props => [email, password];
 }
 
-class CreateUserAccountEvent extends AuthEvent {
-  const CreateUserAccountEvent({
+class SignUpEvent extends AuthEvent {
+  const SignUpEvent({
     required this.email,
     required this.password,
     required this.fullName,
