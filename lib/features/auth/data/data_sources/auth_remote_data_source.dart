@@ -16,7 +16,7 @@ abstract class AuthRemoteDataSource {
   AuthRemoteDataSource();
   Future<void> forgotPassword({required String email});
 
-  Future<LocalUser> signIn({
+  Future<LocalUserModel> signIn({
     required String email,
     required String password,
   });
@@ -65,7 +65,7 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
   }
 
   @override
-  Future<LocalUser> signIn({
+  Future<LocalUserModel> signIn({
     required String email,
     required String password,
   }) async {
@@ -170,7 +170,7 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
           // Update document url in firestore
           await _updateUserData({'profilePic': url});
         case UpdateUserAction.password:
-          // this case is when is already logged in
+          // this case is when user is already logged in
           // and is trying to change password in user settings
           final newData = jsonDecode(userData as String) as DataMap;
           if (_authClient.currentUser?.email == null) {
