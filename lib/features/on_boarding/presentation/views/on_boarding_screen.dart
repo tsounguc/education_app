@@ -1,5 +1,6 @@
 import 'package:education_app/core/common/screens/loading_view.dart';
 import 'package:education_app/core/common/widgets/gradient_background.dart';
+import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:education_app/core/resources/colours.dart';
 import 'package:education_app/core/resources/media_resources.dart';
 import 'package:education_app/features/on_boarding/domain/entity/page_content.dart';
@@ -11,8 +12,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
-  // static const String id = '/onBoardingScreen';
-  static const String id = '/';
+  static const String id = '/onBoardingScreen';
+  // static const String id = '/';
 
   @override
   State<OnBoardingScreen> createState() => _OnBoardingScreenState();
@@ -27,6 +28,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   }
 
   @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -38,6 +45,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               Navigator.pushReplacementNamed(context, '/');
             } else if (state is UserCached) {
               // TODO(User-Cached-Handler): Push to the appropriate screen
+              Navigator.pushReplacementNamed(context, '/');
             }
           },
           builder: (context, state) {
@@ -46,33 +54,34 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             }
             return Stack(
               children: [
-                PageView(
-                  controller: pageController,
-                  onPageChanged: (index) => pageController.animateToPage(
-                    index,
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.easeInOut,
+                Positioned(
+                  child: PageView(
+                    controller: pageController,
+                    scrollBehavior: const MaterialScrollBehavior(),
+                    children: const [
+                      OnBoardingBody(pageContent: PageContent.first()),
+                      OnBoardingBody(pageContent: PageContent.second()),
+                      OnBoardingBody(pageContent: PageContent.third()),
+                    ],
                   ),
-                  children: const [
-                    OnBoardingBody(pageContent: PageContent.first()),
-                    OnBoardingBody(pageContent: PageContent.second()),
-                    OnBoardingBody(pageContent: PageContent.third()),
-                  ],
                 ),
-                Align(
-                  alignment: const Alignment(0, 0.07),
+                Positioned(
+                  left: context.width * 0.4,
+                  bottom: context.height * 0.4,
                   child: SmoothPageIndicator(
                     controller: pageController,
                     count: 3,
-                    onDotClicked: (index) => pageController.animateToPage(
-                      index,
-                      duration: const Duration(milliseconds: 500),
-                      curve: Curves.easeInOut,
-                    ),
+                    onDotClicked: (index) {
+                      pageController.animateToPage(
+                        index,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
+                    },
                     effect: const WormEffect(
-                      dotHeight: 20,
-                      dotWidth: 20,
-                      spacing: 50,
+                      dotHeight: 10,
+                      dotWidth: 10,
+                      spacing: 40,
                       activeDotColor: Colours.primaryColour,
                       dotColor: Colors.white,
                     ),

@@ -51,7 +51,7 @@ Future<void> _initAuth() async {
         dbClient: serviceLocator(),
       ),
     )
-    ..registerLazySingleton(() => FirebaseAuth)
-    ..registerLazySingleton(() => FirebaseFirestore)
-    ..registerLazySingleton(() => FirebaseStorage);
+    ..registerLazySingleton(() => FirebaseAuth.instance)
+    ..registerLazySingleton(() => FirebaseFirestore.instance)
+    ..registerLazySingleton(() => FirebaseStorage.instance);
 }

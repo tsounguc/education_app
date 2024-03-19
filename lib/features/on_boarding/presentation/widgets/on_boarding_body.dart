@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:education_app/core/resources/colours.dart';
 import 'package:education_app/core/resources/fonts.dart';
@@ -17,8 +15,11 @@ class OnBoardingBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(pageContent.image, height: context.height * 0.4),
+        SizedBox(
+          child: Image.asset(pageContent.image, height: context.height * 0.5),
+        ),
         SizedBox(
           height: context.height * 0.03,
         ),
@@ -55,8 +56,9 @@ class OnBoardingBody extends StatelessWidget {
                   backgroundColor: Colours.primaryColour,
                   foregroundColor: Colors.white,
                 ),
-                onPressed: () async {
-                  await context.read<OnBoardingCubit>().cacheFirstTimer();
+                onPressed: () {
+                  print('clicked');
+                  context.read<OnBoardingCubit>().cacheFirstTimer();
                 },
                 child: const Text(
                   'Get Started',
