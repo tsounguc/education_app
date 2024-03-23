@@ -63,6 +63,7 @@ dependencies:
   video_thumbnail: ^0.5.3
   youtube_metadata: ^1.0.1
   firebase_ui_auth: ^1.7.0
+  uuid: ^4.3.3
 
 
 
