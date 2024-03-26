@@ -7,7 +7,6 @@ import 'package:education_app/core/errors/exceptions.dart';
 import 'package:education_app/core/utils/constants.dart';
 import 'package:education_app/core/utils/typedefs.dart';
 import 'package:education_app/features/auth/data/models/user_models.dart';
-import 'package:education_app/features/auth/domain/entities/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';

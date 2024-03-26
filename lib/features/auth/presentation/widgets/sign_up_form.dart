@@ -79,7 +79,7 @@ class _SignUpFormState extends State<SignUpForm> {
               }
               return null;
             },
-          )
+          ),
         ],
       ),
     );

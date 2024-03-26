@@ -1,4 +1,3 @@
-import 'package:education_app/core/resources/media_resources.dart';
 import 'package:flutter/material.dart';
 
 class GradientBackground extends StatelessWidget {

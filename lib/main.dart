@@ -3,6 +3,7 @@ import 'package:education_app/core/resources/colours.dart';
 import 'package:education_app/core/resources/fonts.dart';
 import 'package:education_app/core/services/injection_container.dart';
 import 'package:education_app/core/services/router.dart';
+import 'package:education_app/features/dashboard/presentation/providers/dashboard_controller.dart';
 import 'package:education_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,9 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  // FirebaseUIAuth.configureProviders([EmailAuthProvider()]);
+
   await init();
   runApp(const MyApp());
 }
@@ -22,8 +26,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => UserProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(create: (_) => DashboardController()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Education App',

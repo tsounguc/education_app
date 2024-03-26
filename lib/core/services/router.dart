@@ -1,4 +1,3 @@
-import 'package:education_app/core/common/app/providers/user_provider.dart';
 import 'package:education_app/core/common/screens/page_under_construction.dart';
 import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:education_app/core/services/injection_container.dart';
@@ -7,9 +6,6 @@ import 'package:education_app/features/auth/presentation/auth_bloc/auth_bloc.dar
 import 'package:education_app/features/auth/presentation/views/sign_in_screen.dart';
 import 'package:education_app/features/auth/presentation/views/sign_up_screen.dart';
 import 'package:education_app/features/dashboard/presentation/views/dashboard.dart';
-import 'package:education_app/features/on_boarding/data/data_sources/onboarding_local_data_source.dart';
-import 'package:education_app/features/on_boarding/presentation/cubit/on_boarding_cubit.dart';
-import 'package:education_app/features/on_boarding/presentation/views/on_boarding_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:firebase_ui_auth/firebase_ui_auth.dart' as fui;
 import 'package:flutter/material.dart';

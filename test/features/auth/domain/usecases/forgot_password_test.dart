@@ -19,7 +19,7 @@ void main() {
     () async {
       when(() => repo.forgotPassword(
             email: any(named: 'email'),
-          )).thenAnswer(
+          ),).thenAnswer(
         (_) async => const Right(null),
       );
 
@@ -29,7 +29,7 @@ void main() {
 
       verify(() => repo.forgotPassword(
             email: 'email',
-          )).called(1);
+          ),).called(1);
 
       verifyNoMoreInteractions(repo);
     },

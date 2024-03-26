@@ -14,7 +14,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
           //   );
           // } else
           if (serviceLocator<FirebaseAuth>().currentUser != null) {
+            // get user info from firebase
             final user = serviceLocator<FirebaseAuth>().currentUser!;
+
+            // create user model with user info
             final localUser = LocalUserModel(
               uid: user.uid,
               email: user.email ?? '',

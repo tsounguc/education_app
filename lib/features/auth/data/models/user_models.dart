@@ -47,7 +47,7 @@ class LocalUserModel extends LocalUser {
         'groupIds': groupIds,
         'enrolledCourseIds': enrolledCourseIds,
         'followers': followers,
-        'following': following
+        'following': following,
       };
 
   LocalUserModel copyWith({
