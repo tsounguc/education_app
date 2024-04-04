@@ -5,6 +5,29 @@ final serviceLocator = GetIt.instance;
 Future<void> init() async {
   await _initOnBoarding();
   await _initAuth();
+  await _initCourse();
+}
+
+Future<void> _initCourse() async {
+  serviceLocator
+    ..registerFactory(
+      () => CourseCubit(
+        addCourse: serviceLocator(),
+        getCourses: serviceLocator(),
+      ),
+    )
+    ..registerLazySingleton(() => AddCourse(serviceLocator()))
+    ..registerLazySingleton(() => GetCourses(serviceLocator()))
+    ..registerLazySingleton<CourseRepository>(
+      () => CourseRepositoryImpl(serviceLocator()),
+    )
+    ..registerLazySingleton<CourseRemoteDataSource>(
+      () => CourseRemoteDataSourceImpl(
+        serviceLocator(),
+        serviceLocator(),
+        serviceLocator(),
+      ),
+    );
 }
 
 Future<void> _initOnBoarding() async {
