@@ -1,5 +1,6 @@
 import 'package:education_app/core/common/widgets/gradient_background.dart';
 import 'package:education_app/core/resources/media_resources.dart';
+import 'package:education_app/features/home/presentation/refactor/home_body.dart';
 import 'package:education_app/features/home/presentation/widget/home_app_bar.dart';
 import 'package:flutter/material.dart';
 
