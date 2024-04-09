@@ -79,6 +79,7 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
             ),
           ),
           child: Form(
+            key: formKey,
             child: ListView(
               shrinkWrap: true,
               children: [

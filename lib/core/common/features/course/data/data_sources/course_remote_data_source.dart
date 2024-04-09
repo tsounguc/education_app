@@ -7,6 +7,7 @@ import 'package:education_app/core/errors/exceptions.dart';
 import 'package:education_app/features/chat/domain/data/models/group_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
 
 abstract class CourseRemoteDataSource {
   const CourseRemoteDataSource();
@@ -74,14 +75,16 @@ class CourseRemoteDataSourceImpl implements CourseRemoteDataSource {
       // push course model info to document in firestore
       // return Future<void>
       return groupReference.set(groupModel.toMap());
-    } on FirebaseException catch (e) {
+    } on FirebaseException catch (e, s) {
+      debugPrintStack(stackTrace: s);
       throw ServerException(
         message: e.message ?? 'Unknown error occurred',
         statusCode: e.code,
       );
     } on ServerException {
       rethrow;
-    } catch (e) {
+    } catch (e, s) {
+      debugPrintStack(stackTrace: s);
       throw ServerException(message: e.toString(), statusCode: '505');
     }
   }
