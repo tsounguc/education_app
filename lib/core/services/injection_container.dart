@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:education_app/core/common/features/course/data/data_sources/course_remote_data_source.dart';
 import 'package:education_app/core/common/features/course/data/repositories_impl/course_repository_impl.dart';
 import 'package:education_app/core/common/features/course/domain/repositories/course_repository.dart';
-import 'package:education_app/core/common/features/course/presentation/course_cubit.dart';
+import 'package:education_app/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:education_app/features/auth/data/data_sources/auth_remote_data_source.dart';
 import 'package:education_app/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:education_app/features/auth/domain/repository/auth_repository.dart';

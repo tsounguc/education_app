@@ -1,7 +1,7 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:dartz/dartz.dart';
 import 'package:education_app/core/common/features/course/data/models/course_model.dart';
-import 'package:education_app/core/common/features/course/presentation/course_cubit.dart';
+import 'package:education_app/core/common/features/course/presentation/cubit/course_cubit.dart';
 
 import 'package:education_app/core/errors/failures.dart';
 import 'package:education_app/features/auth/domain/usescases/add_course.dart';

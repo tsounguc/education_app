@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:education_app/core/common/widgets/gradient_background.dart';
 import 'package:education_app/core/common/widgets/nested_back_button.dart';
@@ -30,12 +31,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   File? pickedImage;
 
   Future<void> pickImage() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (image != null) {
-      setState(() {
-        pickedImage = File(image.path);
-      });
-    }
+    final image = await CoreUtils.pickImage();
+    setState(() {
+      pickedImage = image;
+    });
   }
 
   bool get nameChanged => context.currentUser?.fullName.trim() != fullNameController.text.trim();

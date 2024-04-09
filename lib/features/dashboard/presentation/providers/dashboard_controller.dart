@@ -1,5 +1,5 @@
 import 'package:education_app/core/common/app/providers/tab_navigator.dart';
-import 'package:education_app/core/common/features/course/presentation/course_cubit.dart';
+import 'package:education_app/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:education_app/core/common/screens/persistent_screen.dart';
 import 'package:education_app/core/services/injection_container.dart';
 import 'package:education_app/features/auth/presentation/auth_bloc/auth_bloc.dart';
