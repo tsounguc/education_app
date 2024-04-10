@@ -1,3 +1,5 @@
+import 'package:education_app/core/common/features/course/domain/entities/course.dart';
+import 'package:education_app/core/common/features/course/presentation/screens/course_details_screens.dart';
 import 'package:education_app/core/common/screens/page_under_construction.dart';
 import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:education_app/core/services/injection_container.dart';

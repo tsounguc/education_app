@@ -56,6 +56,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         (_) => const Dashboard(),
         settings: settings,
       );
+    case CourseDetailsScreen.id:
+      return _pageBuilder(
+        (_) => CourseDetailsScreen(settings.arguments! as Course),
+        settings: settings,
+      );
     // case '/forgot-password':
     //   return _pageBuilder(
     //     (_) => const fui.ForgotPasswordScreen(),
