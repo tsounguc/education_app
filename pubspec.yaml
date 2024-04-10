@@ -48,6 +48,9 @@ dependencies:
   firebase_storage: ^11.6.10
   firebase_ui_auth: ^1.7.0
   flutter_bloc: ^8.1.4
+  flutter_tindercard:
+    git:
+      url: https://github.com/NonymousMorlock/flutter_tindercard.git
   font_awesome_flutter: ^10.7.0
   get_it: ^7.6.7
   http: ^0.13.6
