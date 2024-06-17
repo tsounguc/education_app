@@ -1,4 +1,4 @@
-import 'package:education_app/core/common/features/course/domain/entities/course.dart';
+import 'package:education_app/features/course/domain/entities/course.dart';
 import 'package:flutter/foundation.dart';
 
 class CourseOfTheDayNotifier extends ChangeNotifier {

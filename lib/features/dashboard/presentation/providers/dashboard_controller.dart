@@ -1,8 +1,8 @@
 import 'package:education_app/core/common/app/providers/tab_navigator.dart';
-import 'package:education_app/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:education_app/core/common/screens/persistent_screen.dart';
 import 'package:education_app/core/services/injection_container.dart';
-import 'package:education_app/features/auth/presentation/auth_bloc/auth_bloc.dart';
+import 'package:education_app/features/course/features/videos/presentation/cubit/video_cubit.dart';
+import 'package:education_app/features/course/presentation/cubit/course_cubit.dart';
 import 'package:education_app/features/home/presentation/views/home_screen.dart';
 import 'package:education_app/features/profile/presentation/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +15,13 @@ class DashboardController extends ChangeNotifier {
     ChangeNotifierProvider(
       create: (_) => TabNavigator(
         TabItem(
-          // TODO(Place-Holder): Put HomeScreen or other screens
-          child: BlocProvider(create: (_) => serviceLocator<CourseCubit>(), child: const HomeScreen()),
+          child: MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (_) => serviceLocator<CourseCubit>()),
+              BlocProvider(create: (_) => serviceLocator<VideoCubit>()),
+            ],
+            child: const HomeScreen(),
+          ),
         ),
       ),
       child: const PersistentScreen(),

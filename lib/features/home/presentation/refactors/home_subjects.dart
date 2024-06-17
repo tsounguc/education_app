@@ -1,9 +1,9 @@
-import 'package:education_app/core/common/features/course/domain/entities/course.dart';
-import 'package:education_app/core/common/features/course/presentation/screens/all_courses_screen.dart';
-import 'package:education_app/core/common/features/course/presentation/screens/course_details_screens.dart';
 import 'package:education_app/core/common/widgets/course_tile.dart';
 import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:education_app/core/resources/colours.dart';
+import 'package:education_app/features/course/domain/entities/course.dart';
+import 'package:education_app/features/course/presentation/screens/all_courses_screen.dart';
+import 'package:education_app/features/course/presentation/screens/course_details_screens.dart';
 import 'package:education_app/features/home/presentation/widget/section_header.dart';
 import 'package:flutter/material.dart';
 

@@ -1,10 +1,10 @@
 import 'package:education_app/core/common/app/providers/user_provider.dart';
-import 'package:education_app/core/common/features/course/presentation/cubit/course_cubit.dart';
-import 'package:education_app/core/common/features/course/presentation/widget/add_course_sheet.dart';
 import 'package:education_app/core/extensions/context_extension.dart';
 import 'package:education_app/core/resources/colours.dart';
 import 'package:education_app/core/resources/media_resources.dart';
 import 'package:education_app/core/services/injection_container.dart';
+import 'package:education_app/features/course/presentation/cubit/course_cubit.dart';
+import 'package:education_app/features/course/presentation/widget/add_course_sheet.dart';
 import 'package:education_app/features/profile/presentation/widgets/admin_button.dart';
 import 'package:education_app/features/profile/presentation/widgets/user_info_card.dart';
 import 'package:flutter/material.dart';
@@ -98,7 +98,7 @@ class ProfileBody extends StatelessWidget {
                     useSafeArea: true,
                     builder: (_) => BlocProvider(
                       create: (_) => serviceLocator<CourseCubit>(),
-                      child: AddCourseSheet(),
+                      child: const AddCourseSheet(),
                     ),
                   );
                 },
