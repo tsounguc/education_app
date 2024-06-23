@@ -12,7 +12,7 @@ class MaterialCubit extends Cubit<MaterialState> {
     required GetMaterials getMaterials,
   })  : _addMaterial = addMaterial,
         _getMaterials = getMaterials,
-        super(MaterialInitial());
+        super(const MaterialInitial());
 
   final AddMaterial _addMaterial;
   final GetMaterials _getMaterials;
@@ -23,10 +23,7 @@ class MaterialCubit extends Cubit<MaterialState> {
     for (final material in materials) {
       final result = await _addMaterial(material);
       result.fold(
-        (failure) {
-          emit(MaterialError(failure.errorMessage));
-          return;
-        },
+        (failure) => emit(MaterialError(failure.errorMessage)),
         (_) => null,
       );
     }

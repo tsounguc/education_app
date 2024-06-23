@@ -72,7 +72,7 @@ void main() {
       act: (cubit) => cubit.addMaterials([tMaterial]),
       expect: () => const <MaterialState>[
         AddingMaterials(),
-        MaterialError('500 Error: Server Failure'),
+        MaterialError('500 : Server Failure'),
       ],
       verify: (_) {
         verify(() => addMaterial(tMaterial)).called(1);
@@ -113,7 +113,7 @@ void main() {
       act: (cubit) => cubit.getMaterials('testId'),
       expect: () => const <MaterialState>[
         LoadingMaterials(),
-        MaterialError('500 Error: Server Failure'),
+        MaterialError('500 : Server Failure'),
       ],
       verify: (_) {
         verify(() => getMaterials('testId')).called(1);

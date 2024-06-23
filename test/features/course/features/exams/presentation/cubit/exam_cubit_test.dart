@@ -102,7 +102,7 @@ void main() {
       act: (cubit) => cubit.getExamQuestions(tExam),
       expect: () => [
         const GettingExamQuestions(),
-        const ExamError('500 Error: Server Failure'),
+        const ExamError('500 : Server Failure'),
       ],
       verify: (_) {
         verify(() => getExamQuestions(tExam)).called(1);
@@ -147,7 +147,7 @@ void main() {
       act: (cubit) => cubit.getExams(tCourseId),
       expect: () => [
         const GettingExams(),
-        const ExamError('500 Error: Server Failure'),
+        const ExamError('500 : Server Failure'),
       ],
       verify: (_) {
         verify(() => getExams(tCourseId)).called(1);
@@ -189,7 +189,7 @@ void main() {
       act: (cubit) => cubit.submitExam(tUserExam),
       expect: () => [
         const SubmittingExam(),
-        const ExamError('500 Error: Server Failure'),
+        const ExamError('500 : Server Failure'),
       ],
       verify: (_) {
         verify(() => submitExam(tUserExam)).called(1);
@@ -231,7 +231,7 @@ void main() {
       act: (cubit) => cubit.updateExam(tExam),
       expect: () => [
         const UpdatingExam(),
-        const ExamError('500 Error: Server Failure'),
+        const ExamError('500 : Server Failure'),
       ],
       verify: (_) {
         verify(() => updateExam(tExam)).called(1);
@@ -273,7 +273,7 @@ void main() {
       act: (cubit) => cubit.uploadExam(tExam),
       expect: () => [
         const UploadingExam(),
-        const ExamError('500 Error: Server Failure'),
+        const ExamError('500 : Server Failure'),
       ],
       verify: (_) {
         verify(() => uploadExam(tExam)).called(1);
@@ -316,7 +316,7 @@ void main() {
       act: (cubit) => cubit.getUserCourseExams(tCourseId),
       expect: () => [
         const GettingUserExams(),
-        const ExamError('500 Error: Server Failure'),
+        const ExamError('500 : Server Failure'),
       ],
       verify: (_) {
         verify(() => getUserCourseExams(tCourseId)).called(1);
@@ -356,7 +356,7 @@ void main() {
       act: (cubit) => cubit.getUserExams(),
       expect: () => [
         const GettingUserExams(),
-        const ExamError('500 Error: Server Failure'),
+        const ExamError('500 : Server Failure'),
       ],
       verify: (_) {
         verify(() => getUserExams()).called(1);

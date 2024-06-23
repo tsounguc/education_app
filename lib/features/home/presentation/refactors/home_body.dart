@@ -5,6 +5,7 @@ import 'package:education_app/core/utils/core_utils.dart';
 import 'package:education_app/features/course/presentation/cubit/course_cubit.dart';
 import 'package:education_app/features/home/presentation/refactors/home_header.dart';
 import 'package:education_app/features/home/presentation/refactors/home_subjects.dart';
+import 'package:education_app/features/home/presentation/refactors/home_videos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,7 +30,7 @@ class _HomeBodyState extends State<HomeBody> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<CourseCubit, CourseState>(
-      listener: (context, state) {
+      listener: (_, state) {
         if (state is CourseError) {
           CoreUtils.showSnackBar(context, state.message);
         } else if (state is CoursesLoaded && state.courses.isNotEmpty) {
@@ -41,10 +42,10 @@ class _HomeBodyState extends State<HomeBody> {
       builder: (context, state) {
         if (state is LoadingCourses) {
           return const LoadingView();
-        } else if (state is CoursesLoaded && state.courses.isEmpty || state is CourseError) {
+        } else if ((state is CoursesLoaded && state.courses.isEmpty) || state is CourseError) {
           return const NotFoundText(
-            'No courses found \nPlease contact admin '
-            'or if you are admin, add courses',
+            'No courses found\nPlease contact admin or if you are admin, '
+            'add courses',
           );
         } else if (state is CoursesLoaded) {
           final courses = state.courses
@@ -56,7 +57,9 @@ class _HomeBodyState extends State<HomeBody> {
             children: [
               const HomeHeader(),
               const SizedBox(height: 20),
-              HomeSubjects(courses: state.courses),
+              HomeSubjects(courses: courses),
+              const SizedBox(height: 20),
+              const HomeVideos(),
             ],
           );
         }

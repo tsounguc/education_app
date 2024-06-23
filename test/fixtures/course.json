@@ -1,8 +1,9 @@
 {
   "id": "_empty.id",
   "title": "_empty.title",
-
+  "description": null,
   "groupId": "_empty.groupId",
+  "image": null,
   "createdAt": {
     "_seconds": 1677483548,
     "_nanoseconds": 123456000
@@ -11,10 +12,7 @@
     "_seconds": 1677483548,
     "_nanoseconds": 123456000
   },
-
   "numberOfVideos": 0,
   "numberOfExams": 0,
-  "numberOfMaterials": 0,
-  "image": null,
-  "description": null
+  "numberOfMaterials": 0
 }
